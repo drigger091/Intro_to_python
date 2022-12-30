@@ -51,14 +51,21 @@ class linkedlist:
 
   def delete(self):
 
-    temp = self.head
+    if self.head is None:
+        print("There is no stack to delete!")
 
-    while temp:
-      next = temp.ref #moving to next node
+    else:
 
-      del (temp.data) #deleting current node
+        temp = self.head
 
-      temp = next
+        while temp:
+            next = temp.ref #moving to next node
+
+            del (temp.data) #deleting current node
+
+            temp = next
+
+        print("deleted Stack!")
 
 
 # conducting a stack operation with linkedlist
@@ -72,7 +79,8 @@ while(True):
     print("1---> push")
     print("2---> pop")
     print("3---> peek")
-    print("4---> exit")
+    print("4---> delete the list")
+    print("5---> exit")
 
     ch = int(input("choice please?"))
 
@@ -92,9 +100,28 @@ while(True):
         L.display()
 
     elif ch == 3:
-        L.isempty()
+        res =L.isempty()
+        if res == True:
+            print("The stack is empty!")
+
+        else :
+
+            print("The stack is not Empty")
+
+    
+
+
+
         
     elif ch == 4:
         L.delete()
+        
 
+    elif ch == 5:
         exit()
+
+    else:
+        print("inavlid choice!")
+
+
+        
