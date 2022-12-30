@@ -56,7 +56,7 @@ class linkedlist:
     while temp:
       next = temp.ref #moving to next node
 
-      del temp.data #deleting current node
+      del (temp.data) #deleting current node
 
       temp = next
 
