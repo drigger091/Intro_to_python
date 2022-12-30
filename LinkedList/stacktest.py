@@ -5,7 +5,7 @@ class Node:
     self.data = data
     self.ref = None # address of next node
 
-class linkedlist:
+class stack:
 
   def __init__(self):
     self.head = None
@@ -73,7 +73,7 @@ class linkedlist:
 
 print("============== Welcome to stack testing==================")
 print("what wil you like to do?")
-L = linkedlist()
+L = stack()
 while(True):
     print("Please select from the following")
     print("1---> push")
