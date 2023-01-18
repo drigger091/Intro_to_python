@@ -22,7 +22,24 @@ def add_node(v):
         graph.append(temp)
 
 
-def print_graoh():
+#before performing we check whther v1 and v2 in nodes
+def add_edge(v1,v2): #undirected graph and inweighted graphso no weights
+    if v1 not in nodes:
+        print(v1,"is not present in the nodes")
+    elif v2  not in nodes:
+        print(v2,"is not present in the nodes")
+    else:
+         index1 = nodes.index(v1) #getting the index from node list and change accoording in the graph maxtrix
+         index2 = nodes.index(v2)
+         graph[index1][index2] = 1
+         graph[index2][index1] = 1
+
+def add_edgeWeighted(v1 ,v2 , cost):
+    pass
+
+
+
+def print_graph():
 
     for i in range(node_count):
 
@@ -35,14 +52,17 @@ def print_graoh():
 
 print("Before adding nodes:")
 print(nodes)
-print(graph)
+#print(graph)
 add_node("A")
 add_node("B")
 add_node("C")
 print("After adding nodes:")
+add_edge("A","B") # adding edge between A and B
+add_edge("C","D")
+add_node("C")
 print(nodes)
-print(graph)
-print_graoh()
+#print(graph)
+print_graph()
 print(node_count)
 
 # it is all zero as there are no edges added till yet so no connection
