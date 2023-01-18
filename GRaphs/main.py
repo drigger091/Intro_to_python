@@ -55,6 +55,8 @@ def add_edgeDW(v1,v2,cost): #here the edge is conected from v1 to v2 only change
         index2 = nodes.index(v2)
         graph[index1][index2]= cost
 
+        #incase of directed inweighted we only add 1 instead of cost in the maxtrix
+
 
 
 
