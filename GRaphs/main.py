@@ -22,12 +22,29 @@ def add_node(v):
         graph.append(temp)
 
 
+def print_graoh():
+
+    for i in range(node_count):
+
+        for j in range(node_count):
+            print(graph[i][j], end =" ")
+        print ()
+
+
+
+
 print("Before adding nodes:")
 print(nodes)
 print(graph)
 add_node("A")
+add_node("B")
+add_node("C")
 print("After adding nodes:")
 print(nodes)
 print(graph)
+print_graoh()
+print(node_count)
+
+# it is all zero as there are no edges added till yet so no connection
 
 
