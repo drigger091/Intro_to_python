@@ -34,8 +34,27 @@ def add_edge(v1,v2): #undirected graph and inweighted graphso no weights
          graph[index1][index2] = 1
          graph[index2][index1] = 1
 
-def add_edgeWeighted(v1 ,v2 , cost):
-    pass
+def add_edgeWeighted(v1 ,v2 , cost):#undirected weighted graph
+    if v1 not in nodes:
+        print(v1,"is not present in the nodes")
+    elif v2  not in nodes:
+        print(v2,"is not present in the nodes")
+    else:
+         index1 = nodes.index(v1) #getting the index from node list and change accoording in the graph maxtrix
+         index2 = nodes.index(v2)
+         graph[index1][index2] = cost
+         graph[index2][index1] = cost
+
+def add_edgeDW(v1,v2,cost): #here the edge is conected from v1 to v2 only change in v1 row and v2 column
+    if v1 not in nodes:
+        print(v1,"not present in nodes")
+    elif v2 not in nodes:
+        print(v2,"is not present in the nodes")
+    else:
+        index1 = nodes.index(v1)
+        index2 = nodes.index(v2)
+        graph[index1][index2]= cost
+
 
 
 
@@ -44,22 +63,25 @@ def print_graph():
     for i in range(node_count):
 
         for j in range(node_count):
-            print(graph[i][j], end =" ")
+            print(format(graph[i][j],"<3"), end =" ")
         print ()
 
 
 
 
-print("Before adding nodes:")
-print(nodes)
+#print("Before adding nodes:")
+#print(nodes)
 #print(graph)
 add_node("A")
 add_node("B")
 add_node("C")
+add_node("D")
 print("After adding nodes:")
 add_edge("A","B") # adding edge between A and B
-add_edge("C","D")
-add_node("C")
+add_edgeWeighted("A","B",10)
+add_edgeWeighted("A","D",5)
+add_edgeDW("C","D",4)
+
 print(nodes)
 #print(graph)
 print_graph()
