@@ -30,7 +30,7 @@ def add_edgeUWD(v1,v2): #un weighted but directed graph
     else:
         graph[v1].append(v2)
 
-def delete_node(v): # works for unweighted and weighted directed and undirected graph
+def delete_node(v): # works for unweighted , directed and undirected graph
     if v not in graph:
         print(v, "is not present in the graph")
     else:
