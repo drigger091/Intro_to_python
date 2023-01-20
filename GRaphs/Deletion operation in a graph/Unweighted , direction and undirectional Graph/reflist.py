@@ -41,8 +41,29 @@ def delete_node(v): # works for unweighted , directed and undirected graph
             if v in list1:
                 list1.remove(v)
 
+def delete_edge(v1,v2):
+    if v1 not in graph:
+        print(v1,"is not present in the graph")
+    elif v2 not in graph:
+        print(v2,"is not present in the graph")
+    else:  #checking whether there is an edge bw the mentioned nodes
+        if v2 in graph[v1]:
+            graph[v1].remove(v2) #  we are accesing the v1 key in the graph dictionary and removing the value v2 in there from the list
+            graph[v2].remove(v1) # similarly the vice versa needs to be done in case the edge is undirectional
+        else:
+            print("There is no edge between",v1, "and",v2)
+
+# for directed graph we need not use graph[v2].remove(v1) as only connects one way
 
 
+def delete_edgeD(v1,v2):
+    if v1 not in graph:
+        print(v1,"is not in graph")
+    elif v2 not in graph:
+        print(v2,"is not in graph")
+    else:
+        if v2 in graph[v1]:
+            graph[v1].remove(v2)
 
 
 
@@ -64,7 +85,8 @@ add_edgeUWUD("B","F") # connecting both of them with each other
 add_edgeUWD("F","A") # only connects F with A
 
 add_edgeUWD("E","A")# connecting E with A not the other way
-delete_node("F")  # deleting the node function
-
-print("After adding nodes")
+#delete_node("F")  # deleting the node function
+delete_edge("F","C")
+delete_edgeD("F","A")
+#print("After adding nodes")
 print(graph)
