@@ -36,6 +36,9 @@ def add_edgeUwD(v1 ,v2):  #directed graph
 
 def DFS(node,visited,graph):  #depth first search algo
 
+    if node not in graph:
+        print(node,"is not in graph")
+        return
     
     if node not in visited:
 
@@ -68,7 +71,8 @@ add_edgeUWUD("C","D")
 
 
 #print(graph)
-DFS("A",visited,graph)
+#DFS("B",visited,graph)
+DFS("K",visited,graph)
 
 
 
