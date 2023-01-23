@@ -1,4 +1,4 @@
-# stack data structures are used the traversal
+
 
 # we are using adjacency list representation
 # we are using recursive approach
