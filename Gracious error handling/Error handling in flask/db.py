@@ -1,6 +1,6 @@
 import sqlite3
 
-con = sqlite3.connect("appliation.db")
+con = sqlite3.connect("application.db")
 
 cur = con.cursor()
 
@@ -13,7 +13,7 @@ cur.execute(''' CREATE TABLE blogs
 #insert few rows of data
 cur.execute("INSERT INTO blogs VALUES('first-blog','2023-02-09','My third blog','Some content',1)")
 cur.execute("INSERT INTO blogs VALUES('second-blog','2023-02-09','My second blog','private',0)")
-cur.execute("INSERT INTO blogs VALUES('third-blog','2021-02-09','My first blog','not for common eyes',2)")
+cur.execute("INSERT INTO blogs VALUES('third-blog','2021-02-09','My first blog','not for common eyes',1)")
 
 
 
