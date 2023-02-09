@@ -15,7 +15,7 @@ def fetch_blogs():
 
     #connect to the database
 
-    con = sqlite3.connect("appliation.db")
+    con = sqlite3.connect("application.db")
 
     cur = con.cursor()
 
@@ -32,3 +32,20 @@ def fetch_blogs():
     cur.close()
 
     return result
+
+
+def fetch_blog(id:str):
+
+    #connect the database
+
+    con = sqlite3.connect('application.db')
+    cur = con.cursor()
+
+    #query to fetch the data
+
+    cur.execute(f"SELECT * FROM blogs where id = '{id}'")
+    result = cur.fetchone()
+
+    data = blog_lst_conv_to_json(result)
+
+    return data
