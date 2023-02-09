@@ -1,0 +1,1 @@
+2023-02-09 18:47:44,117 HTTPSConnectionPool(host='jhhgggdhghnwr.com', port=443): Max retries exceeded with url: /nothinghere/ (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x00000165ACA70A90>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
