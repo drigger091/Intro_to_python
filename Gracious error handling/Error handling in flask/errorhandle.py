@@ -1,7 +1,7 @@
 import flask
 
 from flask import Flask , jsonify,abort
-from dbapp import fetch_blog, fetch_blogs
+from dbapp import fetch_blog, fetch_blogs ,Notauthorizederror, Notfounderror
 
 app = Flask(__name__)
 
@@ -15,7 +15,12 @@ def all_blogs():
 
 @app.route('/blogs/<id>')
 def get_blog(id):
-    return jsonify(fetch_blog(id))
+    try:
+        return jsonify(fetch_blog(id))
+    except Notfounderror:
+        abort(404,description = "Resource not found")
+    except Notauthorizederror:
+        abort(403, description = "Acces Denied")
 
 
 if __name__ == "__main__":
