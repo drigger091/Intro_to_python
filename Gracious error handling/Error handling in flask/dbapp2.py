@@ -1,8 +1,25 @@
 #types of exceptions we may find is that we cannot find the blog 
 # we may come across a blog that is not public
+#this one we are adding context manager and doing the application
+#here the enter method will return a cursor method and we intiate the connection open and  close with sqlite class
+                                              
 
+
+
+#adding a context manager , which signifies what happens when an object is created and  destryoed and the file 
 
 import sqlite3
+class Sqlite:
+
+    def __init__(self,file = "application.db"):
+        self.file = file       
+    def __enter__(self):
+        self.conn = sqlite3.connect(self.file)
+        return self.conn.cursor()   #returning a cursor object as it will be executable for query
+    def __exit__(self,type,value,traceback):
+        self.conn.close()
+
+
 
 class Notfounderror(Exception):
     pass
@@ -26,30 +43,26 @@ def fetch_blogs():
 
     #connect to the database
     try:
-
-        con = sqlite3.connect("application.db")
-
-        cur = con.cursor()
+        with Sqlite("application.db") as cur:
+            
+       
 
 
     #execute sql query
 
-        cur.execute('SELECT * FROM blogs where public=1')
+            cur.execute('SELECT * FROM blogs where public=1')
 
     #fetch the data and then turning into a dit for better representation in JSON
 
-        result = list(map(blog_lst_conv_to_json,cur.fetchall()))
-        return result
+            result = list(map(blog_lst_conv_to_json,cur.fetchall()))
+            return result
 
     except Exception as e:
         print(e)
         return []
 
-    finally:
-
-    #close the database
-        con.close()
-
+   # we dont need the close statemnt anymore as the context manager closes the database connection
+    # context manager helps creation and destruction of resources in a single place
     
     
 
