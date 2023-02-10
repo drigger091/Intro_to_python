@@ -21,7 +21,7 @@ def get_blog(id):
         abort(404,description = "Resource not found")
     except Notauthorizederror:
         abort(403, description = "Acces Denied")
-
+#blocks the third block as it is private
 
 if __name__ == "__main__":
     app.run()
