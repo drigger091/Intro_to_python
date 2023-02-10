@@ -27,25 +27,32 @@ def blog_lst_conv_to_json(item):
 def fetch_blogs():
 
     #connect to the database
-    
+    try:
 
-    con = sqlite3.connect("application.db")
+        con = sqlite3.connect("application.db")
 
-    cur = con.cursor()
+        cur = con.cursor()
 
 
     #execute sql query
 
-    cur.execute('SELECT * FROM blogs where public=1')
+        cur.execute('SELECT * FROM blogs where public=1')
 
     #fetch the data and then turning into a dit for better representation in JSON
 
-    result = list(map(blog_lst_conv_to_json,cur.fetchall()))
+        result = list(map(blog_lst_conv_to_json,cur.fetchall()))
+        return result
+
+    except Exception as e:
+        print(e)
+        return []
+
+    finally:
 
     #close the database
-    con.close()
+        con.close()
 
-    return result
+    
     
 
 
