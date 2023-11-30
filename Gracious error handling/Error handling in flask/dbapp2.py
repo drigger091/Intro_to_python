@@ -16,7 +16,7 @@ class Sqlite:
     def __enter__(self):
         self.conn = sqlite3.connect(self.file)
         return self.conn.cursor()   #returning a cursor object as it will be executable for query
-    def __exit__(self,type,value,traceback):
+    def __exit__(self,type,value,traceback):  # all these parameters are needed for it to work correctly
         self.conn.close()
 
 
